@@ -1,11 +1,12 @@
 template(name="products")
 	H6.heading-home #{getCat}
 	div.row-fluid
-		div.col-xs-4.product-div
-			div.item-div
-				div.product-img
-				div.product-detail #001 NAME
-					strong $439.99
+		+each getProducts
+			div.col-xs-4.product-div
+				div.item-div
+					div.product-img
+					div.product-detail #{name}
+						strong $439.99
 		div.col-xs-4.product-div
 			div.item-div
 				div.product-img

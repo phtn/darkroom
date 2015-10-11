@@ -1,5 +1,5 @@
 Meteor.startup(()=>{
-	if( Categories.find().count() === 0) {
+	if( Categories.find().count() === 0 ) {
 		Categories.insert({
 			categoriesArray: [
 				{name: 'knives',
@@ -12,5 +12,13 @@ Meteor.startup(()=>{
 				 title: 'GUITARS'}
 			]
 		})
+	}
+
+	if( Products.find().count() === 0 ) {
+		Products.insert({name: 'Damascus', price: 1299, cat: 'KNIVES'});
+		Products.insert({name: 'Jungle Bolo', price: 1699, cat: 'KNIVES'});
+		Products.insert({name: 'Screwer', price: 485, cat: 'TOOLS'});
+		Products.insert({name: 'Nail Gun', price: 26, cat: 'TOOLS'});
+		Products.insert({name: 'Pliers', price: 50, cat: 'TOOLS'});
 	}
 });
