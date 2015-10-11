@@ -1,0 +1,1 @@
+Meteor.publish('showCategories', ()=>{return Categories.find({})});
