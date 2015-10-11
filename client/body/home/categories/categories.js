@@ -9,5 +9,8 @@ Template.categories.events({
 	'click .panel-list': (e)=>{
 		console.log(e.target.id);
 		Session.set('selectedCategory', e.target.id.toUpperCase());
+	},
+	'click #cat': ()=>{
+		Session.set('selectedCategory', 'ALL');
 	}
 })

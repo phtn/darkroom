@@ -4,7 +4,12 @@ Template.products.helpers({
 		return Session.get('selectedCategory');
 	},
 	getProducts: ()=>{
-		return Products.find({cat:Session.get('selectedCategory')});
+		if (Session.get('selectedCategory') == 'ALL') {
+			return Products.find({});
+		} else {
+			return Products.find({cat:Session.get('selectedCategory')});	
+		}
+		
 	}
 });
 
