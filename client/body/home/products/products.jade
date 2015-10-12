@@ -1,16 +1,21 @@
 template(name="products")
 	H6.heading-home #{getCat}
-	div.row-fluid
+	div.row-fluid.product-row
 		+each getProducts
 			div.col-xs-4.product-div
 				div.item-div
 					div.product-img
 					div.product-detail
-						div.col-xs-3
-							i.fa.fa-bookmark.fa-2x.product-icon
-						div.col-xs-6
-						div.col-xs-3
-							i.fa.fa-plus.fa-2x.product-icon
+						div.col-xs-4.product-lbl
+							i.fa.fa-dollar #{price}
+						div.col-xs-8.product-lbl.product-name #{name}
+					div.row-fluid.product-material
+						i.fa.fa-cube.material-icon  &nbsp; steel, leather
+					div.row-fluid.product-widgets
+						div.col-xs-6 
+							i.fa.fa-bookmark-o.fa-x1.product-icon
+						div.col-xs-6 
+							i.fa.fa-shopping-cart.product-icon
 
 
 
