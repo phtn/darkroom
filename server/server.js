@@ -21,4 +21,12 @@ Meteor.startup(()=>{
 		Products.insert({name: 'Nail Gun', price: 26, cat: 'TOOLS'});
 		Products.insert({name: 'Pliers', price: 50, cat: 'TOOLS'});
 	}
+
+	if( Cart.find().count() === 0) {
+		Cart.insert({
+			qty: 1,
+			name: 'Shuriken',
+			price: 5
+		});
+	}
 });

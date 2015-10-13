@@ -1,7 +1,18 @@
 template(name="nav")
 	nav.navbar.navbar-default#topbar
 		div.container-fluid
-			div.navbar-header
-				h5#brand GANYMEDE 
-					small HW
-
+			div.navbar-header.header
+				div.col-xs-6
+					h5#brand CALLISTO 
+				div.col-xs-6
+					if currentUser
+						div.col-xs-10
+							span.user-name.pull-right #{user}
+						div.col-xs-2
+							span(data-toggle="tooltip" data-placement="right" title=" LOG OUT ").fa-stack.fa.lg.pull-right#log-out
+								i.fa.fa-square.fa-stack-2x#sqre
+								i.fa.fa-arrow-circle-right.fa-stack-1x.fa-inverse
+					else
+						span(data-toggle="tooltip" data-placement="right" title=" SIGN IN ").fa-stack.fa.lg.pull-right#sign-in
+							i.fa.fa-square.fa-stack-2x#sqre
+							i.fa.fa-google.fa-stack-1x.fa-inverse
