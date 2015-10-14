@@ -5,7 +5,7 @@ template(name="cart")
 		div.col-xs-2.cart-lbl QTY
 		div.col-xs-4.cart-lbl ITEM
 		div.col-xs-4.cart-lbl PRICE
-		div.col-xs-2.cart-lbl X
+		div.col-xs-2.cart-lbl#x X
 	+each cartItems
 		div.row-fluid
 			div.col-xs-2.cart-items#qty #{qty}
@@ -14,4 +14,5 @@ template(name="cart")
 				i.fa.fa-dollar #{price}
 			div.col-xs-2.cart-items
 				i.fa.fa-minus-circle#remove-item
-
+	div.row-fluid
+		div.col-xs-12 Total: #{total}

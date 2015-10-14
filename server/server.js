@@ -15,7 +15,7 @@ Meteor.startup(()=>{
 	}
 
 	if( Products.find().count() === 0 ) {
-		Products.insert({name: 'Damascus', price: 1299, cat: 'KNIVES'});
+		Products.insert({name: 'Pilones blade', price: 1299, cat: 'KNIVES'});
 		Products.insert({name: 'Jungle Bolo', price: 1699, cat: 'KNIVES'});
 		Products.insert({name: 'Screwer', price: 485, cat: 'TOOLS'});
 		Products.insert({name: 'Nail Gun', price: 26, cat: 'TOOLS'});

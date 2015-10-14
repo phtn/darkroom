@@ -14,9 +14,11 @@ Template.products.helpers({
 });
 
 Template.products.events({
-	'click #add-to-cart': function() {
+	'click #add-to-cart' () {
 		if(Meteor.user()) {
+			
 			Meteor.call('addToCart', this._id, Meteor.userId(), this.name, this.price, this.cat)
+			
 		}else {
 			sAlert.error('You must Sign-in first.', {
 		    	effect: 'scale',
