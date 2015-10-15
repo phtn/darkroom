@@ -23,11 +23,11 @@ Template.cart.helpers({
 		return (getTotal()).toFixed(2)
 	},
 	tax () {
-		var taxRate = 0.12;
+		var taxRate = 0.065;
 		return (getTotal() * taxRate).toFixed(2)
 	},
 	total () {
-		var taxRate = 0.12;
+		var taxRate = 0.065;
 		var tax = getTotal() * taxRate;
 		return (getTotal() + tax).toFixed(2)
 	}
