@@ -9,6 +9,10 @@ Template.cart.events({
 });
 
 Template.cart.helpers({
+	cartCount () {
+		Meteor.subscribe('showCart');
+		return Cart.find({owner: Meteor.userId()}).count()
+	},
 	cartItems () {
 		if( Meteor.user()) {
 			Meteor.subscribe('showCart');

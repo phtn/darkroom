@@ -13,7 +13,7 @@ Template.nav.events({
 		    	{
 			    	effect: 'scale',
 			    	position: 'bottom-right',
-			    	timeout: 3000,
+			    	timeout: 1500,
 			    	html: true
 		    	}
 	    	)

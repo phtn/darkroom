@@ -1,29 +1,37 @@
 template(name="cart")
-	H6.heading-home CART
-		i.fa.fa-flag#insertProduct
-	div.row-fluid
-		div.col-xs-2.cart-lbl QTY
-		div.col-xs-4.cart-lbl ITEM
-		div.col-xs-4.cart-lbl PRICE
-		div.col-xs-2.cart-lbl#x X
-	+each cartItems
+	if cartCount
+		H6.heading-home CART
+			i.fa.fa-flag#insertProduct
 		div.row-fluid
-			div.col-xs-2.cart-items#qty #{qty}
-			div.col-xs-4.cart-items #{name}
-			div.col-xs-4.cart-items
-				i.fa.fa-dollar &nbsp;#{price}
-			div.col-xs-2.cart-items
-				i.fa.fa-minus-circle#remove-item
-	div.row-fluid
-		div.col-xs-6.total-lbl.sub-total-lbl Sub-Total
-		div.col-xs-6.total-value.sub-total-lbl.left
-			i.fa.fa-dollar &nbsp;#{subTotal}
-	div.row-fluid
-		div.col-xs-6.total-lbl Tax
-		div.col-xs-6.total-value.left
-			i.fa.fa-dollar &nbsp;#{tax}
-	div.row-fluid
-		div.col-xs-6.total-lbl Total
-		div.col-xs-6.total-value.left#grand
-			i.fa.fa-dollar &nbsp;#{total}
+			div.col-xs-2.cart-lbl QTY
+			div.col-xs-4.cart-lbl ITEM
+			div.col-xs-4.cart-lbl PRICE
+			div.col-xs-2.cart-lbl#x X
+		+each cartItems
+			div.row-fluid
+				div.col-xs-2.cart-items#qty #{qty}
+				div.col-xs-4.cart-items #{name}
+				div.col-xs-4.cart-items
+					i.fa.fa-dollar &nbsp;#{price}
+				div.col-xs-2.cart-items
+					i.fa.fa-minus-circle#remove-item
+		div.row-fluid
+			div.col-xs-6.total-lbl.sub-total-lbl Sub-Total
+			div.col-xs-6.total-value.sub-total-lbl.left
+				i.fa.fa-dollar &nbsp;#{subTotal}
+		div.row-fluid
+			div.col-xs-6.total-lbl Tax
+			div.col-xs-6.total-value.left
+				i.fa.fa-dollar &nbsp;#{tax}
+		div.row-fluid
+			div.col-xs-6.total-lbl Total
+			div.col-xs-6.total-value.left#grand
+				i.fa.fa-dollar &nbsp;#{total}
+	else
+		H6.heading-home CART IS EMPTY
+		br
+		div.row-fluid
+			div.col-xs-12.empty-cart
+				i.ion-ios-cart-outline#empty-cart
+
 

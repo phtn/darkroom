@@ -6,4 +6,5 @@ template(name="home")
 			div.col-xs-8.products
 				+products
 			div.col-xs-2.cart
-				+cart
+				if currentUser
+					+cart
