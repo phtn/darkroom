@@ -15,25 +15,30 @@ Template.cart.helpers({
 			return Cart.find(); 
 		}
 	},
+	subTotal () {
+		return (getTotal()).toFixed(2)
+	},
+	tax () {
+		var taxRate = 0.12;
+		return (getTotal() * taxRate).toFixed(2)
+	},
 	total () {
-		let totalArr=[];
+		var taxRate = 0.12;
+		var tax = getTotal() * taxRate;
+		return (getTotal() + tax).toFixed(2)
+	}
+});
+
+var getTotal = ()=> {
+	let totalArr=[];
 		let sum=0;
 		Cart.find({owner:Meteor.userId()}).map(function(doc) {
 		  let price = doc.price * doc.qty;
-		  
 			totalArr.push(price)
-			//console.log(totalArr);
-			
-			
-			
-			
 		});
 		for (i=0; i < totalArr.length; i++) {
 				sum += totalArr[i];
 		}
-
 		return sum;
-		
-	}
-});
-
+	
+}

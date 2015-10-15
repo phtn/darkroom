@@ -8,16 +8,18 @@ Template.nav.events({
 				// ERROR
 			}
 		});
+	    	sAlert.success(
+	    	'<i class="fa fa-cog fa-spin fa-2x"></i>', 
+		    	{
+			    	effect: 'scale',
+			    	position: 'bottom-right',
+			    	timeout: 3000,
+			    	html: true
+		    	}
+	    	)
 	    FlowRouter.go('/');
-	    sAlert.success(
-	    	'Logging In <i class="fa fa-cog fa-spin fa-2x"></i>', 
-	    	{
-		    	effect: 'scale',
-		    	position: 'bottom-right',
-		    	timeout: 3000,
-		    	html: true
-	    	}
-	    );
+	    
+	    
 	},
 	'click #log-out': ()=>{
 		Meteor.logout();
