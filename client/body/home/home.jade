@@ -3,8 +3,8 @@ template(name="home")
 		div.row-fluid
 			div.col-xs-2.categories
 				+categories
-			div.col-xs-8.products
+			div.col-sm-10.products
 				+products
-			div.col-xs-2.cart
+			//div.col-md-4.cart
 				if currentUser
 					+cart

@@ -1,5 +1,14 @@
 Template.nav.events({
-	'click #brand': ()=>FlowRouter.go('/'),
+	'click #brand' () {
+		Bert.alert({
+		  type: 'danger',
+		  style: 'fixed-bottom',
+		  title: 'Callisto',
+		  message: 'Theophiles thistles',
+		  icon: 'fa-gamepad',
+		  hide: 1000
+		});
+		FlowRouter.go('/')},
 	'click #sign-in': ()=>{
 		Meteor.loginWithGoogle({
 			requestPermission: ['email','profile']
@@ -8,25 +17,27 @@ Template.nav.events({
 				// ERROR
 			}
 		});
-	    	sAlert.success(
-	    	'<i class="fa fa-cog fa-spin fa-2x"></i>', 
-		    	{
-			    	effect: 'scale',
-			    	position: 'bottom-right',
-			    	timeout: 1500,
-			    	html: true
-		    	}
-	    	)
-	    FlowRouter.go('/');
+	    	Bert.alert({
+			  type: 'logging-in',
+			  style: 'fixed-bottom',
+			  message: 'Logging In',
+			  icon: 'fa-cog fa-spin fa-2x',
+			  timeout: 1000
+			});
+	    	
+	    	FlowRouter.go('/');
 	    
 	    
 	},
 	'click #log-out': ()=>{
 		Meteor.logout();
-		sAlert.error('Logged Out', {
-	    	effect: 'scale',
-	    	position: 'bottom-right',
-	    	timeout: 3000});
+		Bert.alert({
+		  type: 'logged-out',
+		  style: 'fixed-bottom',
+		  message: 'Logged Out',
+		  icon: 'fa-remove',
+		  hideDelay: 5000
+		})
 	}
 });
 
