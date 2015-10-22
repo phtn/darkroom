@@ -3,7 +3,7 @@ Meteor.subscribe('showCart');
 Template.nav.events({
 	'click #brand' () {
 		Bert.alert({
-		  type: 'danger',
+		  type: 'default',
 		  style: 'fixed-bottom',
 		  title: 'Callisto',
 		  message: 'Theophiles thistles',
@@ -11,7 +11,7 @@ Template.nav.events({
 		  hide: 1000
 		});
 		FlowRouter.go('/')},
-	'click #sign-in': ()=>{
+	'click #sign-in' () {
 		Meteor.loginWithGoogle({
 			requestPermission: ['email','profile']
 		}, function(err) {
@@ -31,13 +31,23 @@ Template.nav.events({
 	    
 	    
 	},
-	'click #log-out': ()=>{
+	'click #log-out' () {
 		Meteor.logout();
 		Bert.alert({
 		  type: 'logged-out',
 		  style: 'fixed-bottom',
 		  message: 'Logged Out',
 		  icon: 'fa-remove',
+		  hideDelay: 5000
+		})
+	},
+	'click .cart-items-count' () {
+		FlowRouter.go('/cart');
+		Bert.alert({
+		  type: 'logging-in',
+		  style: 'fixed-bottom',
+		  message: 'Loading Cart Items',
+		  icon: 'fa-cog fa-spin fa-2x',
 		  hideDelay: 5000
 		})
 	}
@@ -52,7 +62,7 @@ Template.nav.helpers({
 	}
 });
 
-var getTotalCount = ()=> {
+var getTotalCount = () => {
 	let itemCountArr=[];
 		let sum=0;
 		Cart.find({owner:Meteor.userId()}).map(function(doc) {
