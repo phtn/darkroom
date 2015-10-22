@@ -6,8 +6,12 @@ template(name="nav")
 					h5#brand CALLISTO 
 				div.col-xs-6
 					if currentUser
-						div.col-xs-10
+						div.col-xs-8
 							span.user-name.pull-right #{user}
+						div.col-xs-1
+							i.fa.fa-shopping-cart.cart-icon.pull-right
+						div.col-xs-1
+							span.badge.cart-items-count.pull-left #{countCartItems}
 						div.col-xs-2
 							span(data-toggle="tooltip" data-placement="right" title=" LOG OUT ").fa-stack.fa.lg.pull-right#log-out
 								i.fa.fa-square.fa-stack-2x#sqre

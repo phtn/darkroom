@@ -1,3 +1,5 @@
+Meteor.subscribe('showCart');
+
 Template.nav.events({
 	'click #brand' () {
 		Bert.alert({
@@ -42,7 +44,23 @@ Template.nav.events({
 });
 
 Template.nav.helpers({
-	user: ()=>{
+	user () {
 		return Meteor.user().profile.name;
+	},
+	countCartItems () {
+		return getTotalCount()
 	}
-})
+});
+
+var getTotalCount = ()=> {
+	let itemCountArr=[];
+		let sum=0;
+		Cart.find({owner:Meteor.userId()}).map(function(doc) {
+		  let items = doc.qty;
+			itemCountArr.push(items)
+		});
+		for (i=0; i < itemCountArr.length; i++) {
+				sum += itemCountArr[i];
+		}
+		return sum;
+	}
