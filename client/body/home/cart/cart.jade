@@ -27,8 +27,9 @@ template(name="cart")
 				div.col-xs-6.total-lbl Total
 				div.col-xs-6.total-value.left#grand
 					i.fa.fa-dollar &nbsp;#{total}
-			div
+			div.row-fluid.checkout-div
 				button.btn.btn-primary#checkout Proceed to Checkout
+					i.fa.fa-chevron-right
 	else
 		H6.heading-home CART IS EMPTY
 		br
